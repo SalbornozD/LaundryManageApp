@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Lemon&family=Poetsen+One&display=swap');
+
+h1{
+    font-family: "Lemon", serif;
+}
+
+#pg-index{
+    min-height: 100vh;
+    background-image: 
+        linear-gradient(rgba(23, 94, 161, 0.80), rgba(23, 94, 161, 0.80)),
+        url('/static/main/img/portada_main.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10vh 0;
+}
+
+#pg-index h1{
+    text-align: center;
+    color: white;
+    font-size: 2.8em;
+}
+
+#pg-index form{
+    width: 90vw;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+
+#pg-index form .login-error{
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+#pg-index form .button-panel{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+#pg-index form .button-panel .link{
+    color: white;
+}

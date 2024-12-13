@@ -1,7 +1,31 @@
-<h1>Hola mundo</h1>
+{% extends 'main/utils/base.html' %}
+{% load static %}
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Enviar</button>
-  </form>
+{% block content %}
+
+<main id="pg-index">
+    <h1>Lavandería<br>Ingrid</h1>
+    <form method="post">
+
+        {% csrf_token %}
+        <div class="form-floating">
+            {{form.username}}
+            <label for="id_username">Nombre de usuario</label>
+        </div>
+
+        <div class="form-floating">
+            {{form.password}}
+            <label for="id_password">Contraseña</label>
+        </div>
+
+        <p class="login-error">Usuario o contraseña incorrectos.</p>
+        
+        <div class="button-panel">
+            <a href="#" class="link">Olvide mi contraseña</a>
+            <input type="submit" value="Iniciar sesión" class="btn btn-light">
+        </div>
+    </form>
+</main>
+
+
+{% endblock %}
