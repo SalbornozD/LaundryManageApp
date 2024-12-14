@@ -1,6 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import LoginForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 
 
@@ -25,12 +26,22 @@ def index(request):
                     if user is None: data["error_message"] = "El nombre de usuario o la contraseña no son correctos."
             
                     else:
-                        print("Exito")
+                        return redirect('home')
                         
             except User.DoesNotExist:
                 data["error_message"] = "El nombre de usuario o la contraseña no son correctos."
+    
     else:
         login_form = LoginForm()
     
     data["form"] = login_form
     return render(request, 'main/index.html', data)
+
+@login_required
+def home(request):
+    data = {}
+    data['user'] = request.user
+    
+
+    
+    return render(request, 'main/home.html', {})

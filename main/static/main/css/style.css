@@ -1,8 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Lemon&family=Poetsen+One&display=swap');
 
+body{
+    background-color: rgb(8, 76, 139);
+}
+
 h1{
     font-family: "Lemon", serif;
 }
+
+/* Estilos página index */
 
 #pg-index{
     min-height: 100vh;
@@ -13,9 +19,8 @@ h1{
     background-size: cover;
     display: flex;
     flex-flow: column nowrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
-    padding: 8vh 0;
 }
 
 #pg-index h1{
@@ -51,4 +56,54 @@ h1{
 
 #pg-index form .button-panel .link:hover{
     color: black;
+}
+
+/* Estilos página home */
+
+.widget-container{
+    width: 90%;
+    height: fit-content;
+    background-color: white;
+    border: 2px black solid;
+    border-radius: 15px;
+    padding: 5px 10px;
+}
+
+#pg-home{
+    margin: 70px 0 0 ;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    gap: 20px;
+}
+
+#pg-home .user-container{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    color: black;
+}
+
+#pg-home .user-container h5 span{
+    white-space: nowrap;
+}
+
+#pg-home .user-container a{
+    font-size: xx-large;
+    color: black;
+    padding: 5px 10px;
+}
+
+#pg-home .orders-container{
+    display: flex;
+    flex-flow: column nowrap;
+    align-self: center;
+    gap: 10px;
+}
+
+#pg-home .orders-container form{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 15px;
 }

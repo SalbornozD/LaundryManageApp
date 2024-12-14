@@ -1,0 +1,43 @@
+{% extends 'main/utils/base.html' %}
+{% load static %}
+
+{% block content %}
+{% include 'main/utils/navbar.html' %}
+<main id="pg-home">
+    <div class="user-container widget-container">
+        <h5>Bienvenido, <span>{{user.first_name}} {{user.last_name}}</span></h5>
+        <a href="">
+            <i class="bi bi-person-fill-gear"></i>
+        </a>
+    </div>
+    <div class="orders-container widget-container">
+        <h5>Pedidos en curso</h5>
+        <form action="">
+            <div class="d-flex">
+                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
+                <button class="btn btn-success" type="submit"><i class="bi bi-search"></i></button>
+            </div>
+            <div>
+                <select class="form-select" aria-label="Default select example">
+                    <option selected>Filtrar por estado</option>
+                    <option value="1">En proceso</option>
+                    <option value="2">Por entregar</option>
+                </select>
+            </div>
+            <div class="row justify-content-center">
+                <input type="date" class="col-6">
+                <div class="col-1"></div>
+                <input type="submit" class="btn btn-success col-4" value="Filtrar">
+            </div>
+        </form>
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto">
+        <a href="" class="btn btn-dark">
+            Nuevo pedido
+        </a>
+    </div>
+    
+</main>
+
+
+{% endblock %}
