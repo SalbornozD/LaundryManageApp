@@ -18,8 +18,11 @@
             <label for="id_password">Contraseña</label>
         </div>
 
-        <p class="login-error">Usuario o contraseña incorrectos.</p>
-        
+        {% if error_message %}
+        <p class="login-error">{{error_message}}</p>
+        {% endif %}
+
+
         <div class="button-panel">
             <a href="#" class="link">Olvide mi contraseña</a>
             <input type="submit" value="Iniciar sesión" class="btn btn-light">

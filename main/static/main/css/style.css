@@ -15,7 +15,7 @@ h1{
     flex-flow: column nowrap;
     justify-content: space-between;
     align-items: center;
-    padding: 10vh 0;
+    padding: 8vh 0;
 }
 
 #pg-index h1{
@@ -26,23 +26,29 @@ h1{
 
 #pg-index form{
     width: 90vw;
+    max-width: 400px;
     display: flex;
     flex-flow: column nowrap;
-    gap: 10px;
+    gap: 15px;
 }
 
 #pg-index form .login-error{
     color: white;
     font-weight: bold;
-    text-align: center;
+    text-align: justify;
 }
 
 #pg-index form .button-panel{
     display: flex;
     flex-flow: row nowrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    align-items: center;
 }
 
 #pg-index form .button-panel .link{
     color: white;
+}
+
+#pg-index form .button-panel .link:hover{
+    color: black;
 }
