@@ -30,13 +30,35 @@
                 <input type="submit" class="btn btn-success col-4" value="Filtrar">
             </div>
         </form>
+        <div>
+            {% for order in orders %}
+            <div>
+                <h6>Cliente: {{order.client_name}}</h6>
+                <div>
+                    <p>ID del pedido: {{order.id}}</p>
+                    <p>{{order.receipt_date_time}}</p>
+                </div>
+                {% if order.status == '3' %}
+                <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0"
+                    aria-valuemax="100">
+                    <div class="progress-bar" style="width: 0%"></div>
+                </div>
+                {% elif order.status == '4' %}
+                <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="50" aria-valuemin="0"
+                    aria-valuemax="100">
+                    <div class="progress-bar" style="width: 50%"></div>
+                </div>
+                {% endif %}
+            </div>
+            {% endfor %}
+        </div>
     </div>
     <div class="d-grid gap-2 col-6 mx-auto">
         <a href="/orders/createOrder/" class="btn btn-dark">
             Nuevo pedido
         </a>
     </div>
-    
+
 </main>
 
 

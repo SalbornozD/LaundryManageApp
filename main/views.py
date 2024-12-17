@@ -3,7 +3,7 @@ from .forms import LoginForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-
+from order_management_module.models import Order, ItemOrder, ImageItemOrder
 
 def index(request):
     data = {}
@@ -45,6 +45,6 @@ def home(request):
     data = {}
     data['user'] = request.user
     
-
+    data['orders'] = Order.objects.all()
     
-    return render(request, 'main/home.html', {})
+    return render(request, 'main/home.html', data)
