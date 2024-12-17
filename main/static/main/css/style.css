@@ -2,6 +2,7 @@
 
 body{
     background-color: rgb(8, 76, 139);
+    padding: 70px 1vh 15px;
 }
 
 h1{
@@ -70,7 +71,6 @@ h1{
 }
 
 #pg-home{
-    margin: 70px 0 0 ;
     display: flex;
     flex-flow: column;
     align-items: center;
@@ -106,4 +106,37 @@ h1{
     display: flex;
     flex-flow: column nowrap;
     gap: 15px;
+}
+
+#pg-home .orders-container .orders-container-body{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+
+}
+
+#pg-home .orders-container .orders-container-body .order-container{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 5px;
+}
+
+#pg-home .orders-container .orders-container-body .order-container a{
+    text-decoration: none;
+}
+
+#pg-home .orders-container .orders-container-body .order-container a h6{
+    margin: 0;
+    color: black;
+    text-decoration: none;
+}
+
+#pg-home .orders-container .orders-container-body .order-container .order-details{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
+
+#pg-home .orders-container .orders-container-body .order-container .order-details p{
+    margin: 0;
 }

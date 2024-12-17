@@ -12,31 +12,37 @@
     </div>
     <div class="orders-container widget-container">
         <h5>Pedidos en curso</h5>
-        <form action="">
+        <form method="get">
             <div class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search">
-                <button class="btn btn-success" type="submit"><i class="bi bi-search"></i></button>
+                <input class="form-control me-2" type="search" name="search" placeholder="Buscar"
+                       aria-label="Search" value="{{ request.GET.search }}">
+                <button class="btn btn-success" type="submit">
+                    <i class="bi bi-search"></i>
+                </button>
             </div>
             <div>
-                <select class="form-select" aria-label="Default select example">
-                    <option selected>Filtrar por estado</option>
-                    <option value="1">En proceso</option>
-                    <option value="2">Por entregar</option>
+                <select class="form-select" name="status" aria-label="Default select example">
+                    <option value="">Filtrar por estado</option>
+                    <option value="3" {% if request.GET.status == '3' %}selected{% endif %}>En proceso</option>
+                    <option value="4" {% if request.GET.status == '4' %}selected{% endif %}>Por entregar</option>
                 </select>
             </div>
             <div class="row justify-content-center">
-                <input type="date" class="col-6">
+                <input type="date" class="col-6" name="date" value="{{ request.GET.date }}">
                 <div class="col-1"></div>
                 <input type="submit" class="btn btn-success col-4" value="Filtrar">
             </div>
-        </form>
-        <div>
+        </form>        
+        <hr>
+        <div class="orders-container-body">
             {% for order in orders %}
-            <div>
-                <h6>Cliente: {{order.client_name}}</h6>
-                <div>
+            <div class="order-container">
+                <a href="">
+                    <h6>Cliente: {{order.client_name}}</h6>
+                </a>
+                <div class="order-details">
                     <p>ID del pedido: {{order.id}}</p>
-                    <p>{{order.receipt_date_time}}</p>
+                    <p>{{ order.receipt_date_time|date:"d/m/Y" }}</p>
                 </div>
                 {% if order.status == '3' %}
                 <div class="progress" role="progressbar" aria-label="Basic example" aria-valuenow="0" aria-valuemin="0"

@@ -42,9 +42,24 @@ def index(request):
 
 @login_required
 def home(request):
-    data = {}
-    data['user'] = request.user
-    
-    data['orders'] = Order.objects.all()
-    
+    search_query = request.GET.get('search', '')
+    status_filter = request.GET.get('status', '')
+    date_filter = request.GET.get('date', '')
+
+    orders = Order.objects.filter(status__in=['3', '4'])
+
+    if search_query: #Filtro por nombre de cliente
+        orders = orders.filter(client_name__icontains=search_query)
+
+    if status_filter: # Filtro por estado
+        orders = orders.filter(status=status_filter)
+
+    if date_filter: # Filtro por fecha de recepción
+        orders = orders.filter(receipt_date_time__date=date_filter)
+
+    data = {
+        'user': request.user,
+        'orders': orders,
+    }
+
     return render(request, 'main/home.html', data)
