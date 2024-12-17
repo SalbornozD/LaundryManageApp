@@ -8,6 +8,9 @@ from django.contrib.auth.models import User
 def index(request):
     data = {}
 
+    if request.user.is_authenticated:
+        return redirect('home')
+
     if request.method == 'POST':
         login_form = LoginForm(request.POST)
 

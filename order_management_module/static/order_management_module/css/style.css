@@ -1,0 +1,45 @@
+body{
+    background-color: rgb(8, 76, 139);
+    padding: 70px 5vw 20px 5vw;
+}
+
+#pg-createOrder{
+    background-color: white;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 15px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+
+#pg-createOrder form{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 20px;
+}
+
+#pg-createOrder form div{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+
+#pg-createOrder form .button-panel{
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+}
+
+#pg-createOrder form .button-panel a{
+    width: 50%;
+}
+
+#pg-createOrder form .button-panel input{
+    width: 50%;
+}
+
+#ordersPanel .item-container{
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 15px;
+}

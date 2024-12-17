@@ -1,0 +1,38 @@
+{% extends 'order_management_module/utils/base.html' %}
+{% load static %}
+
+{% block content %}
+
+{% include 'order_management_module/utils/navbar.html' %}
+
+<main id="pg-createOrder">
+    <h1>Nuevo pedido</h1>
+    <form action="" enctype="multipart/form-data" method="post">
+        {% csrf_token %}
+        <div id="clientPanel">
+            <h6>Datos del cliente</h6>
+            <div class="form-floating">
+                <input type="text" class="form-control" id="client_name" name="client_name"
+                    placeholder="Nombre del cliente">
+                <label for="client_name">Nombre del cliente</label>
+            </div>
+            <div class="form-floating">
+                <input type="email" class="form-control" id="client_email" name="client_email"
+                    placeholder="name@example.com">
+                <label for="client_email">Correo electrónico</label>
+            </div>
+        </div>
+        <hr>
+        <div id="ordersPanel">
+            <h6>Carrito</h6>
+        </div>
+        <button id="btnAddItem" type="button" class="btn btn-outline-dark">Agregar item <i class="bi bi-plus-circle"></i> </button>
+        <hr>
+        <div class="button-panel">
+            <a href="/" class="btn btn-danger">Cancelar</a>
+            <input type="submit" value="Crear" class="btn btn-success">
+        </div>
+    </form>
+</main>
+
+{% endblock %}
