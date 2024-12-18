@@ -43,3 +43,26 @@ body{
     flex-flow: column nowrap;
     gap: 15px;
 }
+
+#pg-order{
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 10px;
+}
+
+#pg-order h1{
+    margin: 0;
+}
+
+#pg-order p{
+    margin: 0;
+}
+
+#pg-order div div a{
+    color: black;
+    font-size: x-large;
+}

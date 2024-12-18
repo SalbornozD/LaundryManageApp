@@ -6,31 +6,53 @@
 {% include 'order_management_module/utils/navbar.html' %}
 
 <main id="pg-createOrder">
-    <h1>Nuevo pedido</h1>
+    <h1>{{ order.id|default:"Nuevo pedido" }}</h1>
     <form action="" enctype="multipart/form-data" method="post">
         {% csrf_token %}
         <div id="clientPanel">
             <h6>Datos del cliente</h6>
             <div class="form-floating">
                 <input type="text" class="form-control" id="client_name" name="client_name"
-                    placeholder="Nombre del cliente">
+                    placeholder="Nombre del cliente" value="{{ order.client_name|default:'' }}">
                 <label for="client_name">Nombre del cliente</label>
             </div>
             <div class="form-floating">
                 <input type="email" class="form-control" id="client_email" name="client_email"
-                    placeholder="name@example.com">
+                    placeholder="name@example.com" value="{{ order.client_email|default:'' }}">
                 <label for="client_email">Correo electrónico</label>
             </div>
         </div>
         <hr>
         <div id="ordersPanel">
             <h6>Carrito</h6>
+            {% for item in items %}
+            <div class="order-item">
+                <input type="hidden" name="item_id_{{ forloop.counter }}" value="{{ item.id }}">
+                <div class="form-floating">
+                    <input type="text" class="form-control" id="description_{{ forloop.counter }}" 
+                        name="description_{{ forloop.counter }}" value="{{ item.description }}" placeholder="Descripción del ítem">
+                    <label for="description_{{ forloop.counter }}">Descripción</label>
+                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" id="detail_{{ forloop.counter }}" 
+                        name="detail_{{ forloop.counter }}" placeholder="Detalles">{{ item.detail }}</textarea>
+                    <label for="detail_{{ forloop.counter }}">Detalles</label>
+                </div>
+                <div>
+                    <label for="images_{{ forloop.counter }}">Imágenes</label>
+                    <input type="file" id="images_{{ forloop.counter }}" name="images_{{ forloop.counter }}" multiple>
+                    {% for image in item.imageitemorder_set.all %}
+                    <img src="{{ image.image.url }}" alt="Imagen del item" style="max-height: 100px;">
+                    {% endfor %}
+                </div>
+            </div>
+            {% endfor %}
         </div>
-        <button id="btnAddItem" type="button" class="btn btn-outline-dark">Agregar item <i class="bi bi-plus-circle"></i> </button>
+        <button id="btnAddItem" type="button" class="btn btn-outline-dark">Agregar item <i class="bi bi-plus-circle"></i></button>
         <hr>
         <div class="button-panel">
             <a href="/" class="btn btn-danger">Cancelar</a>
-            <input type="submit" value="Crear" class="btn btn-success">
+            <input type="submit" value="Guardar" class="btn btn-success">
         </div>
     </form>
 </main>

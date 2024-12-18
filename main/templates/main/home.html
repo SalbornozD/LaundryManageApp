@@ -37,7 +37,7 @@
         <div class="orders-container-body">
             {% for order in orders %}
             <div class="order-container">
-                <a href="">
+                <a href="/order/{{order.id}}/">
                     <h6>Cliente: {{order.client_name}}</h6>
                 </a>
                 <div class="order-details">
@@ -60,7 +60,7 @@
         </div>
     </div>
     <div class="d-grid gap-2 col-6 mx-auto">
-        <a href="/orders/createOrder/" class="btn btn-dark">
+        <a href="/order/create/" class="btn btn-dark">
             Nuevo pedido
         </a>
     </div>
